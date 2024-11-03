@@ -1,0 +1,17 @@
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - vendor/**/*
+    - Gemfile.lock
+    - db/*_schema.rb
+    - db/schema.rb
+    - tmp/**/*
+    - bin/**/*
+    - test/dummy/**/*
+    - bench/**/*
+    - lib/generators/**/*_schema.rb
+  TargetRubyVersion: 3.2

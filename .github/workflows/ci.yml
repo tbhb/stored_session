@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      - name: Lint code for consistent style
+        run: bin/rubocop --parallel
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: [3.2, 3.3]
+        gemfile: [rails_7_2, rails_8_0, rails_main]
+        database: [mysql, postgres, sqlite]
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+        ports:
+          - 33060:3306
+        options:
+          --health-cmd "mysql -h localhost -e \"select now()\""
+          --health-interval 1s --health-timeout 5s --health-retries 30
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_HOST_AUTH_METHOD: "trust"
+        ports:
+          - 55432:5432
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+      TARGET_DB: ${{ matrix.database }}
+    steps:
+      - name: Install packages
+        run:
+          sudo apt-get update && sudo apt-get install --no-install-recommends -y libjemalloc2 libvips sqlite3
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+        run: |
+          bin/rails db:setup
+          bin/rails test
+
+      - name: Check for security vulnerabilities
+        run: bin/brakeman -A
