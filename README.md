@@ -21,6 +21,15 @@ Then, set your session store in `config/initializers/session_store.rb`:
 Rails.application.config.session_store :solid_session_store, key: '_my_app_session`
 ```
 
+When [Solid Queue](https://github.com/rails/solid_queue) is used as your ActiveJob queue adapter, add `SolidSession::TrimSessionsJob` to `config/recurring.yml`:
+
+```ruby
+production:
+  trim_sessions:
+    class: "SolidSession::TrimSessionsJob"
+    schedule: every day
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
