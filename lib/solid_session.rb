@@ -5,9 +5,12 @@ require "solid_session/engine"
 require "action_dispatch"
 require "action_dispatch/middleware/session/abstract_store"
 
+require "active_job"
+
 require "active_record/encryption/message_pack_message_serializer"
 
 require "active_support"
+require "active_support/core_ext/integer/time"
 require "active_support/log_subscriber"
 require "active_support/message_pack"
 
