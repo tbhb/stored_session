@@ -7,14 +7,26 @@ class SolidSession::Configuration
   attribute :base_record_class_name, :string, default: "::ApplicationRecord"
 
   attribute :connects_to
+  attribute :max_age, :integer, default: 30.days
 
   attribute :sessions_table_name, :string, default: "solid_sessions"
   attribute :session_class_name, :string, default: "::SolidSession::Session"
-  attribute :session_record_key, :string, default: "rack.session.record"
+
+  validates :max_age, numericality: { greater_than: 0 }, presence: true
+
+  attribute :trim_sessions_job_enabled, :boolean, default: true
+  attribute :trim_sessions_job_queue_as, default: :default
 
   validates :base_controller_class_name, presence: true
   validates :base_job_class_name, presence: true
   validates :base_record_class_name, presence: true
+
+  validates :sessions_table_name, presence: true
+  validates :session_class_name, presence: true
+
+  validates :max_age, presence: true
+
+  validates :trim_sessions_job_queue_as, presence: true
 
   def base_controller_class = base_controller_class_name.constantize
   def base_job_class = base_job_class_name.constantize

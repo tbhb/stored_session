@@ -16,14 +16,7 @@ module SolidSession
     end
 
     initializer "solid_session.config" do |app|
-      config_paths = %w[config/session config/solid_session]
-      config_paths.each { |path| app.paths.add path, with: ENV["SOLID_SESSION_CONFIG"] || "#{path}.yml" }
-      config_pathname = config_paths.map { |path| Pathname.new(app.config.paths[path].first) }.find(&:exist?)
-
-      options = config_pathname ? app.config_for(config_pathname).to_h.deep_symbolize_keys : {}
-      options.merge!(app.config.solid_session)
-
-      SolidSession.config = SolidSession::Configuration.new(**options)
+      SolidSession.config = SolidSession::Configuration.new(app.config.solid_session)
     end
 
     initializer "solid_session.logger" do

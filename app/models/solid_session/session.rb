@@ -17,6 +17,13 @@ class SolidSession::Session < SolidSession::Record
       without_query_cache do
         upsert({ sid:, data: }, unique_by: upsert_unique_by, on_duplicate: :update, update_only: %i[sid data])
       end
+      true
+    rescue ActiveRecord::SerializationTypeMismatch
+      false
+    end
+
+    def trim!(max_age = SolidSession.config.max_age)
+      where("updated_at < ?", max_age.ago).in_batches.delete_all
     end
 
     private
