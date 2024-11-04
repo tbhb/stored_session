@@ -6,6 +6,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # config.session_store :solid_session_store, key: "_dummy_session", silence: false
+
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
@@ -23,7 +25,7 @@ Rails.application.configure do
   config.cache_store = :null_store
 
   # Render exception templates for rescuable exceptions and raise for other exceptions.
-  config.action_dispatch.show_exceptions = :rescuable
+  config.action_dispatch.show_exceptions = false
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
