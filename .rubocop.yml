@@ -9,6 +9,7 @@ AllCops:
     - Gemfile.lock
     - db/*_schema.rb
     - db/schema.rb
+    - gemfiles/*
     - tmp/**/*
     - bin/**/*
     - test/dummy/**/*
