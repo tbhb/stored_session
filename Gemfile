@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 7.2.2"
 
 gem "propshaft"
 gem "puma", ">= 5.0"
