@@ -35,14 +35,27 @@ class SolidSession::SessionTest < ActiveSupport::TestCase
     assert_not SolidSession::Session.write(sid.private_id, "not a hash")
   end
 
-  test "trim! with sessions older than the max age" do
+  test "trim! with sessions older than the max created age" do
+    old_sid = Rack::Session::SessionId.new(SecureRandom.hex(16))
+    old_session = SolidSession::Session.create!(sid: old_sid.private_id, data: { "foo" => "bar" }, created_at: 2.days.ago)
+
+    new_sid = Rack::Session::SessionId.new(SecureRandom.hex(16))
+    new_session = SolidSession::Session.create!(sid: new_sid.private_id, data: { "foo" => "bar" }, created_at: 12.hours.ago)
+
+    SolidSession::Session.trim!(max_created_age: 1.day)
+
+    assert_nil SolidSession::Session.find_by(sid: old_sid.private_id)
+    assert SolidSession::Session.find_by(sid: new_sid.private_id)
+  end
+
+  test "trim! with sessions older than the max updated age" do
     old_sid = Rack::Session::SessionId.new(SecureRandom.hex(16))
     old_session = SolidSession::Session.create!(sid: old_sid.private_id, data: { "foo" => "bar" }, updated_at: 2.days.ago)
 
     new_sid = Rack::Session::SessionId.new(SecureRandom.hex(16))
     new_session = SolidSession::Session.create!(sid: new_sid.private_id, data: { "foo" => "bar" }, updated_at: 12.hours.ago)
 
-    SolidSession::Session.trim!(1.day)
+    SolidSession::Session.trim!(max_updated_age: 1.day)
 
     assert_nil SolidSession::Session.find_by(sid: old_sid.private_id)
     assert SolidSession::Session.find_by(sid: new_sid.private_id)

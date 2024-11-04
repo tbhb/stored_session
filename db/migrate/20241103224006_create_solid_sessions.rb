@@ -8,6 +8,7 @@ class CreateSolidSessions < ActiveRecord::Migration[7.2]
       t.string :sid, null: false, index: { unique: true }
       t.binary :data, limit: 536870912
 
+      t.index :created_at
       t.index :updated_at
     end
   end

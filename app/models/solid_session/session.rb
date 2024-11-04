@@ -1,3 +1,5 @@
+require "active_support/core_ext/integer/time"
+
 class SolidSession::Session < SolidSession::Record
   self.table_name = SolidSession.config.sessions_table_name
 
@@ -22,8 +24,10 @@ class SolidSession::Session < SolidSession::Record
       false
     end
 
-    def trim!(max_age = SolidSession.config.max_age)
-      where("updated_at < ?", max_age.ago).in_batches.delete_all
+    def trim!(max_created_age: nil, max_updated_age: nil)
+      max_created_threshold = (max_created_age || SolidSession.config.max_created_age).ago
+      max_updated_threshold = (max_updated_age || SolidSession.config.max_updated_age).ago
+      where(created_at: ...max_created_threshold).or(where(updated_at: ...max_updated_threshold)).in_batches.delete_all
     end
 
     private
