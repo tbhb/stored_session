@@ -1,3 +1,10 @@
+require "action_dispatch/session/solid_session_store"
+
+require "active_support"
+require "action_dispatch"
+require "action_controller"
+require "active_record"
+
 module SolidSession
   class Engine < ::Rails::Engine
     isolate_namespace SolidSession
@@ -19,10 +26,6 @@ module SolidSession
       SolidSession.config = SolidSession::Configuration.new(**options)
     end
 
-    initializer "solid_session.executor" do |app|
-      SolidSession.executor ||= app.executor
-    end
-
     initializer "solid_session.logger" do
       ActiveSupport.on_load(:solid_session) { self.logger ||= ::Rails.logger }
       SolidSession::LogSubscriber.attach_to :solid_session
@@ -36,6 +39,8 @@ module SolidSession
       end
 
       SolidSession.config.validate!
+
+      SolidSession::Store.session_class = SolidSession.config.session_class
     end
   end
 end

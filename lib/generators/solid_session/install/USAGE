@@ -1,7 +1,0 @@
-Description:
-    Installs solid_session
-
-Example:
-    bin/rails generate solid_session:install
-
-    This generator adds default configuration for Solid Session.

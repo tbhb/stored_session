@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 7d08d3a6bc66ef5a1c8d23352a2260b11ec0b61d
+  revision: 4e45524f3747d8f20cc48435fc26dab861f175e8
   branch: 8-0-stable
   specs:
     actioncable (8.0.0.rc2)
@@ -101,11 +101,11 @@ PATH
   remote: ..
   specs:
     solid_session (0.1.0)
-      actionpack (>= 7.2)
-      activejob (>= 7.2)
-      activerecord (>= 7.2)
+      actionpack (>= 8.0.0.rc2)
+      activejob (>= 8.0.0.rc2)
+      activerecord (>= 8.0.0.rc2)
       bundler (>= 1.15.0)
-      railties (>= 7.2)
+      railties (>= 8.0.0.rc2)
       zeitwerk (~> 2.6)
 
 GEM
@@ -150,7 +150,7 @@ GEM
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.7.5)
+    json (2.7.6)
     language_server-protocol (3.17.0.3)
     logger (1.6.1)
     loofah (2.23.1)
@@ -236,7 +236,7 @@ GEM
       rubocop-ast (>= 1.32.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.33.1)
+    rubocop-ast (1.34.0)
       parser (>= 3.3.1.0)
     rubocop-minitest (0.36.0)
       rubocop (>= 1.61, < 2.0)
