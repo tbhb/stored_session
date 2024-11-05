@@ -26,6 +26,7 @@ group :development do
   gem "web-console"
 
   gem "appraisal", require: false
+  gem "rubocop-minitest", require: false
   gem "rubocop-rails-omakase", require: false
 end
 
