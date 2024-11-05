@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors     = [ "Tony Burns" ]
   spec.email       = [ "tony@tonyburns.net" ]
   spec.homepage    = "https://github.com/tbhb/stored_session"
-  spec.summary     = "Database-backed session store for Rails."
-  spec.description = "Database-backed session store for Rails."
+  spec.summary     = "Encrypted, database-backed session store for Rails."
+  spec.description = "Encrypted, database-backed session store for Rails."
   spec.license     = "MIT"
 
   spec.metadata = {
