@@ -5,20 +5,24 @@
 Encrypted, database-backed [session store](https://guides.rubyonrails.org/security.html#session-storage) for [Rails](https://rubyonrails.org). It is a modernization of the [activerecord-session_store](https://github.com/rails/activerecord-session_store) gem that was previously extracted from Rails. Stored Session is encrypted by default and is tested with MySQL, PostgreSQL, and SQLite against Rails 8+.
 
 > [!WARNING]
-> This gem is currently in active development and should be considered alpha software. The API and functionality are subject to change without notice until a stable 1.0 release.
+> This gem is currently in active development and should be considered alpha software. The API and functionality are subject to change without notice until a stable 1.0 release. See the [roadmap](https://github.com/users/tbhb/projects/6/views/1) for more details.
 
-## Features and roadmap
+## Features
 
 - [x] Compact, encrypted serialization with [MessagePack](https://msgpack.org/) (inspired by [Solid Cache](https://github.com/rails/solid_cache))
-- [x] Built-in [ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) job for expiring inactive sessions
+- [x] Built-in job for expiring inactive sessions
 - [x] Tested with MySQL, PostgreSQL, and SQLite
 - [x] Instrumentation with [ActiveSupport::Notifications](https://guides.rubyonrails.org/active_support_instrumentation.html)
-- [ ] Installation generator
-- [ ] Rake tasks for session maintenance
+- [ ] Privacy-friendly, indexed session metadata (IP, user agent, geocoding)
+- [ ] Callbacks for session operations
+- [ ] Session statistics
 - [ ] Support for dedicated sessions database
-- [ ] Session metadata tracking (IP address, user agent, geocoding)
-- [ ] Integration test helpers for Minitest and RSpec
-- [ ] `stored_session_web` gem for monitoring and administration
+- [ ] Testing framework helpers
+- [ ] Installation generator
+- [ ] Full demo application
+- [ ] `stored_session_web` gem for monitoring and maintenance
+
+See [the roadmap](https://github.com/users/tbhb/projects/6/views/1) for the complete list of planned and in-progress features.
 
 ## Prerequisites
 
