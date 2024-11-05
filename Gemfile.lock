@@ -83,7 +83,6 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    amazing_print (1.6.0)
     appraisal (2.5.0)
       bundler
       rake
@@ -107,13 +106,6 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
-    factory_bot (6.5.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.4)
-      factory_bot (~> 6.5)
-      railties (>= 5.0.0)
-    faker (3.5.1)
-      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -136,8 +128,6 @@ GEM
     marcel (1.0.4)
     mini_mime (1.1.5)
     minitest (5.25.1)
-    mocha (2.5.0)
-      ruby2_keywords (>= 0.0.5)
     msgpack (1.7.3)
     mysql2 (0.5.6)
     net-imap (0.5.0)
@@ -249,7 +239,6 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
-    ruby2_keywords (0.0.5)
     securerandom (0.3.1)
     sqlite3 (2.2.0-aarch64-linux-gnu)
     sqlite3 (2.2.0-aarch64-linux-musl)
@@ -296,14 +285,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  amazing_print
   appraisal
   bootsnap
   brakeman
   debug
-  factory_bot_rails
-  faker
-  mocha
   mysql2
   pg
   propshaft
