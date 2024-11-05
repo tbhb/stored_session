@@ -1,2 +1,2 @@
-# SolidSession::Engine.routes.draw do
+# StoredSession::Engine.routes.draw do
 # end
