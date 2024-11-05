@@ -14,10 +14,7 @@ gem "sqlite3"
 gem "bootsnap", require: false
 
 group :development, :test do
-  gem "amazing_print"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "factory_bot_rails"
-  gem "faker"
 
   gem "brakeman", require: false
 end
@@ -28,8 +25,4 @@ group :development do
   gem "appraisal", require: false
   gem "rubocop-minitest", require: false
   gem "rubocop-rails-omakase", require: false
-end
-
-group :test do
-  gem "mocha", require: false
 end
