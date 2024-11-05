@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    solid_session (0.1.0.alpha1)
+    solid_session (0.1.0)
       actionpack (>= 8.0.0.rc2)
       activejob (>= 8.0.0.rc2)
       activerecord (>= 8.0.0.rc2)
@@ -220,7 +220,7 @@ GEM
       rubocop-ast (>= 1.32.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.33.1)
+    rubocop-ast (1.34.0)
       parser (>= 3.3.1.0)
     rubocop-minitest (0.36.0)
       rubocop (>= 1.61, < 2.0)
