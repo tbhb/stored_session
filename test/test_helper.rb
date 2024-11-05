@@ -61,12 +61,12 @@ class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
   end
 
   private
-    def app
-      @app ||= self.class.build_app do |middleware|
-        middleware.use ActionDispatch::Session::StoredSessionStore, key: "_session_id"
-        middleware.delete ActionDispatch::ShowExceptions
-      end
-    end
+    # def app
+    #   @app ||= self.class.build_app do |middleware|
+    #     middleware.use ActionDispatch::Session::StoredSessionStore, key: "_session_id"
+    #     middleware.delete ActionDispatch::ShowExceptions
+    #   end
+    # end
 
     def with_test_route_set(options = {})
       controller_namespace = self.class.to_s.underscore
@@ -78,9 +78,11 @@ class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
         end
 
         @app = self.class.build_app(set) do |middleware|
-          middleware.use ActionDispatch::Session::StoredSessionStore, options.reverse_merge(key: "_session_id", silence: false)
+          middleware.use ActionDispatch::Session::StoredSessionStore, options.reverse_merge(key: "_session_id")
           middleware.delete ActionDispatch::ShowExceptions
         end
+
+        reset!
 
         yield
       end
