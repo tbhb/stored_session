@@ -16,7 +16,7 @@ Encrypted, database-backed [session store](https://guides.rubyonrails.org/securi
 - [ ] Support for dedicated sessions database
 - [ ] Session metadata tracking (IP address, user agent, geocoding)
 - [ ] Integration test helpers for Minitest and RSpec
-- [ ] `mission_control-sessions` gem for monitoring and administration
+- [ ] `stored_session_web` gem for monitoring and administration
 
 ## Prerequisites
 
