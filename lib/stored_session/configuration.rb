@@ -7,14 +7,13 @@ class StoredSession::Configuration
   attribute :base_record_class_name, :string, default: "::ApplicationRecord"
 
   attribute :connects_to
-  attribute :max_created_age, default: 30.days
-  attribute :max_updated_age, default: 30.days
 
   attribute :sessions_table_name, :string, default: "stored_sessions"
   attribute :session_class_name, :string, default: "::StoredSession::Session"
+  attribute :session_max_created_age, default: 30.days
+  attribute :session_max_updated_age, default: 30.days
 
-  attribute :trim_sessions_job_enabled, :boolean, default: true
-  attribute :trim_sessions_job_queue_as, default: :default
+  attribute :expire_sessions_job_queue_as, default: :default
 
   validates :base_controller_class_name, presence: true
   validates :base_job_class_name, presence: true
@@ -22,11 +21,10 @@ class StoredSession::Configuration
 
   validates :sessions_table_name, presence: true
   validates :session_class_name, presence: true
+  validates :session_max_created_age, numericality: { greater_than: 0 }, presence: true
+  validates :session_max_updated_age, numericality: { greater_than: 0 }, presence: true
 
-  validates :max_created_age, numericality: { greater_than: 0 }, presence: true
-  validates :max_updated_age, numericality: { greater_than: 0 }, presence: true
-
-  validates :trim_sessions_job_queue_as, presence: true
+  validates :expire_sessions_job_queue_as, presence: true
 
   def base_controller_class = base_controller_class_name.constantize
   def base_job_class = base_job_class_name.constantize

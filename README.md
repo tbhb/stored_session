@@ -8,7 +8,7 @@ Encrypted, database-backed [session store](https://guides.rubyonrails.org/securi
 ## Features and roadmap
 
 - [x] Compact, encrypted serialization with [MessagePack](https://msgpack.org/) (inspired by [Solid Cache](https://github.com/rails/solid_cache))
-- [x] Built-in [ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) job for trimming inactive sessions
+- [x] Built-in [ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) job for expiring inactive sessions
 - [x] Tested with MySQL, PostgreSQL, and SQLite
 - [x] Instrumentation with [ActiveSupport::Notifications](https://guides.rubyonrails.org/active_support_instrumentation.html)
 - [ ] Installation generator
@@ -39,12 +39,12 @@ Then, set your session store in `config/initializers/session_store.rb`:
 Rails.application.config.session_store :stored_session_store, key: '_my_app_session`
 ```
 
-When [Solid Queue](https://github.com/rails/solid_queue) is used as your ActiveJob queue adapter, add `StoredSession::TrimSessionsJob` to `config/recurring.yml`:
+When [Solid Queue](https://github.com/rails/solid_queue) is used as your ActiveJob queue adapter, add `StoredSession::ExpireSessionsJob` to `config/recurring.yml`:
 
 ```ruby
 production:
-  trim_sessions:
-    class: "StoredSession::TrimSessionsJob"
+  expire_sessions:
+    class: "StoredSession::ExpireSessionsJob"
     schedule: every day
 ```
 
