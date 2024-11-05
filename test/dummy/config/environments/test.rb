@@ -6,8 +6,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # config.session_store :stored_session_store, key: "_dummy_session", silence: false
-
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 
