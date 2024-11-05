@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    solid_session (0.1.0)
+    stored_session (0.1.0)
       actionpack (>= 8.0.0.rc2)
       activejob (>= 8.0.0.rc2)
       activerecord (>= 8.0.0.rc2)
@@ -296,8 +296,8 @@ DEPENDENCIES
   rails (= 8.0.0.rc2)
   rubocop-minitest
   rubocop-rails-omakase
-  solid_session!
   sqlite3
+  stored_session!
   web-console
 
 BUNDLED WITH

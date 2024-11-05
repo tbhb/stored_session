@@ -27,19 +27,19 @@ default: &default
 development:
   primary:
     <<: *default
-    database: <%= database_name_from("solid_session_development") %>
+    database: <%= database_name_from("stored_session_development") %>
   primary_replica:
     <<: *default
-    database: <%= database_name_from("solid_session_development") %>
+    database: <%= database_name_from("stored_session_development") %>
     replica: true
 
 test:
   primary:
     <<: *default
     pool: 20
-    database: <%= database_name_from("solid_session_test") %>
+    database: <%= database_name_from("stored_session_test") %>
   primary_replica:
     <<: *default
     pool: 20
-    database: <%= database_name_from("solid_session_test") %>
+    database: <%= database_name_from("stored_session_test") %>
     replica: true
