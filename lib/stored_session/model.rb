@@ -24,10 +24,14 @@ module StoredSession::Model
       false
     end
 
-    def trim!(max_created_age: nil, max_updated_age: nil)
-      max_created_threshold = (max_created_age || StoredSession.config.max_created_age).ago
-      max_updated_threshold = (max_updated_age || StoredSession.config.max_updated_age).ago
+    def expire(max_created_age: nil, max_updated_age: nil)
+      max_created_threshold = (max_created_age || StoredSession.config.session_max_created_age).ago
+      max_updated_threshold = (max_updated_age || StoredSession.config.session_max_updated_age).ago
       where(created_at: ...max_created_threshold).or(where(updated_at: ...max_updated_threshold)).in_batches.delete_all
+    end
+
+    def expire_later(max_created_age: nil, max_updated_age: nil)
+      StoredSession::ExpireSessionsJob.perform_later(max_created_age: max_created_age, max_updated_age: max_updated_age)
     end
 
     private
