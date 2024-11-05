@@ -1,4 +1,4 @@
-# Solid Session Changelog
+# Stored Session Changelog
 
 ## Unreleased
 
