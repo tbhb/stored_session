@@ -315,6 +315,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails!
+  rubocop-minitest
   rubocop-rails-omakase
   solid_session!
   sqlite3
