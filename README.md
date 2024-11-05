@@ -7,7 +7,7 @@ Database-backed [session store](https://guides.rubyonrails.org/security.html#ses
 - [x] Compact, encrypted serialization with [MessagePack](https://msgpack.org/) (inspired by [Solid Cache](https://github.com/rails/solid_cache))
 - [x] Built-in [ActiveJob](https://edgeguides.rubyonrails.org/active_job_basics.html) job for trimming inactive sessions
 - [x] Tested with MySQL, PostgreSQL, and SQLite
-- [ ] Instrumentation with [ActiveSupport::Notifications](https://guides.rubyonrails.org/active_support_instrumentation.html)
+- [x] Instrumentation with [ActiveSupport::Notifications](https://guides.rubyonrails.org/active_support_instrumentation.html)
 - [ ] Session metadata tracking (IP address, user agent, geocoding)
 - [ ] Support for dedicated sessions database
 - [ ] Installation generator
@@ -42,6 +42,46 @@ production:
   trim_sessions:
     class: "SolidSession::TrimSessionsJob"
     schedule: every day
+```
+
+## Instrumentation
+
+Solid Session instruments session store operations with `ActiveSupport::Notifications`:
+
+### `session_read.solid_session`
+
+| Key    | Value                 |
+| ------ | --------------------- |
+| `:sid` | The hashed session ID |
+
+```ruby
+{
+  sid: '2::350cabf53a661de4fcf3d0ba6c6c65fd560b41e9697cf000168a9f420fb5366a'
+}
+```
+
+### `session_write.solid_session`
+
+| Key    | Value                 |
+| ------ | --------------------- |
+| `:sid` | The hashed session ID |
+
+```ruby
+{
+  sid: '2::350cabf53a661de4fcf3d0ba6c6c65fd560b41e9697cf000168a9f420fb5366a'
+}
+```
+
+### `session_delete.solid_session`
+
+| Key    | Value                 |
+| ------ | --------------------- |
+| `:sid` | The hashed session ID |
+
+```ruby
+{
+  sid: '2::350cabf53a661de4fcf3d0ba6c6c65fd560b41e9697cf000168a9f420fb5366a'
+}
 ```
 
 ## License

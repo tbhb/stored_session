@@ -32,8 +32,6 @@ module SolidSession
       end
 
       SolidSession.config.validate!
-
-      SolidSession::Store.session_class = SolidSession.config.session_class
     end
   end
 end
