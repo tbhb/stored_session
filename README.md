@@ -84,6 +84,16 @@ Solid Session instruments session store operations with `ActiveSupport::Notifica
 }
 ```
 
+## Acknowledgements
+
+This gem builds upon the excellent work of many contributors in the Ruby on Rails ecosystem. Special thanks to:
+
+- The Rails core team and contributors, whose test suites and session store implementations in Rails itself core provided a robust foundation.
+- The maintainers and contributors of the original `activerecord-session_store` gem, whose longstanding work influenced this implementation.
+- The Solid Cache and Solid Queue maintainers and contributors, particularly for their modern database interaction patterns.
+
+Portions of the gem boilerplate, implementation, and test suite and gem infrastructure were adapted from these projects, each of which are also distributed under the MIT License.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
