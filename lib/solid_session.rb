@@ -13,6 +13,7 @@ require "active_support"
 require "active_support/core_ext/integer/time"
 require "active_support/log_subscriber"
 require "active_support/message_pack"
+require "active_support/notifications"
 
 require "zeitwerk"
 
