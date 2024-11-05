@@ -1,6 +1,6 @@
 # Stored Session
 
-Database-backed [session store](https://guides.rubyonrails.org/security.html#session-storage) for [Rails](https://rubyonrails.org). It is a modernization of the [activerecord-session_store](https://github.com/rails/activerecord-session_store) gem that was previously extracted from Rails. Stored Session is encrypted by default and is tested with MySQL, PostgreSQL, and SQLite against Rails 8+.
+Encrypted, database-backed [session store](https://guides.rubyonrails.org/security.html#session-storage) for [Rails](https://rubyonrails.org). It is a modernization of the [activerecord-session_store](https://github.com/rails/activerecord-session_store) gem that was previously extracted from Rails. Stored Session is encrypted by default and is tested with MySQL, PostgreSQL, and SQLite against Rails 8+.
 
 > [!WARNING]
 > This gem is currently in active development and should be considered alpha software. The API and functionality are subject to change without notice until a stable 1.0 release.
@@ -93,7 +93,7 @@ Stored Session instruments session store operations with `ActiveSupport::Notific
 This gem builds upon the excellent work of many contributors in the Ruby on Rails ecosystem. Special thanks to:
 
 - The Rails core team and contributors, whose test suites and session store implementations in Rails itself core provided a robust foundation.
-- The maintainers and contributors of the original `activerecord-session_store` gem, whose longstanding work influenced this implementation.
+- The maintainers and contributors of the original [activerecord-session_store](https://github.com/rails/activerecord-session_store) gem, whose longstanding work influenced this implementation.
 - The [Solid Cache](https://github.com/rails/solid_cache) and [Solid Queue](https://github.com/rails/solid_queue) maintainers and contributors, particularly for their modern database interaction patterns.
 
 Portions of the gem boilerplate, implementation, and test suite and gem infrastructure were adapted from these projects, each of which are also distributed under the MIT License.
