@@ -63,7 +63,7 @@ class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
   private
     def app
       @app ||= self.class.build_app do |middleware|
-        middleware.use ActionDispatch::Session::SolidSessionStore, key: "_session_id"
+        middleware.use ActionDispatch::Session::StoredSessionStore, key: "_session_id"
         middleware.delete ActionDispatch::ShowExceptions
       end
     end
@@ -78,7 +78,7 @@ class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
         end
 
         @app = self.class.build_app(set) do |middleware|
-          middleware.use ActionDispatch::Session::SolidSessionStore, options.reverse_merge(key: "_session_id", silence: false)
+          middleware.use ActionDispatch::Session::StoredSessionStore, options.reverse_merge(key: "_session_id", silence: false)
           middleware.delete ActionDispatch::ShowExceptions
         end
 

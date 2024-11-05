@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 32dcdcaef666e0043b0df844aa167201d50f8c9c
+  revision: 2052ca452bf76ae9d2c99e2e7574bf11151fa98f
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -100,7 +100,7 @@ GIT
 PATH
   remote: ..
   specs:
-    solid_session (0.1.0)
+    stored_session (0.1.0)
       actionpack (>= 8.0.0.rc2)
       activejob (>= 8.0.0.rc2)
       activerecord (>= 8.0.0.rc2)
@@ -302,8 +302,8 @@ DEPENDENCIES
   rails!
   rubocop-minitest
   rubocop-rails-omakase
-  solid_session!
   sqlite3
+  stored_session!
   web-console
 
 BUNDLED WITH
