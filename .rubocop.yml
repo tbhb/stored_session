@@ -1,6 +1,9 @@
 inherit_gem:
   rubocop-rails-omakase: rubocop.yml
 
+require:
+  - rubocop-minitest
+
 AllCops:
   NewCops: enable
   SuggestExtensions: false
@@ -16,3 +19,12 @@ AllCops:
     - bench/**/*
     - lib/generators/**/*_schema.rb
   TargetRubyVersion: 3.2
+
+Minitest:
+  Enabled: true
+
+Minitest/MultipleAssertions:
+  Enabled: false
+
+Performance:
+  Enabled: true
