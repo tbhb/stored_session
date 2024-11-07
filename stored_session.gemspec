@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 3.2.0"
 
-  rails_version = '>= 8.0.0.rc2'
+  rails_version = '>= 8.0.0'
   spec.add_dependency 'actionpack', rails_version
   spec.add_dependency 'activejob', rails_version
   spec.add_dependency 'activerecord', rails_version

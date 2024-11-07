@@ -1,6 +1,6 @@
 # Stored Session
 
-[![Gem Version](https://badge.fury.io/rb/stored_session.svg)](https://badge.fury.io/rb/stored_session) [![Required Ruby Version](https://img.shields.io/badge/ruby-%3E%3D%203.2-ruby.svg)](https://www.ruby-lang.org/en/downloads/) [![Required Rails Version](https://img.shields.io/badge/rails-%3E%3D%208.0.0.rc2-brightgreen.svg)](https://edgeguides.rubyonrails.org/) [![CI](https://github.com/tbhb/stored_session/actions/workflows/ci.yml/badge.svg)](https://github.com/tbhb/stored_session/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Gem Version](https://badge.fury.io/rb/stored_session.svg)](https://badge.fury.io/rb/stored_session) [![Required Ruby Version](https://img.shields.io/badge/ruby-%3E%3D%203.2-ruby.svg)](https://www.ruby-lang.org/en/downloads/) [![Required Rails Version](https://img.shields.io/badge/rails-%3E%3D%208.0.0-brightgreen.svg)](https://edgeguides.rubyonrails.org/) [![CI](https://github.com/tbhb/stored_session/actions/workflows/ci.yml/badge.svg)](https://github.com/tbhb/stored_session/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Encrypted, database-backed [session store](https://guides.rubyonrails.org/security.html#session-storage) for [Rails](https://rubyonrails.org). It is a modernization of the [activerecord-session_store](https://github.com/rails/activerecord-session_store) gem that was previously extracted from Rails. Stored Session is encrypted by default and is tested with MySQL, PostgreSQL, and SQLite against Rails 8+.
 
@@ -27,7 +27,7 @@ See [the roadmap](https://github.com/users/tbhb/projects/6/views/1) for the comp
 ## Prerequisites
 
 - Ruby >= 3.2.0
-- Rails >= 8.0.0.rc2
+- Rails >= 8.0.0
 
 ## Installation
 
