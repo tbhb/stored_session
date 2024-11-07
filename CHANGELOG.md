@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Update minimum Rails version to 8.0.0
+
 ## [0.3.0](https://github.com/tbhb/stored_session/releases/tag/v0.3.0)
 
 - Add log subscriber events (<https://github.com/tbhb/stored_session/pull/22>)

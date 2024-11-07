@@ -27,7 +27,8 @@ jobs:
       fail-fast: false
       matrix:
         ruby-version: [3.2, 3.3]
-        gemfile: [rails_8_0, rails_main]
+        gemfile:
+          [Gemfile, gemfiles/rails_8_0.gemfile, gemfiles/rails_main.gemfile]
         database: [mysql, postgres, sqlite]
     services:
       mysql:
@@ -46,8 +47,7 @@ jobs:
         ports:
           - 55432:5432
     env:
-      BUNDLE_GEMFILE:
-        ${{ github.workspace }}/gemfiles/${{ matrix.gemfile }}.gemfile
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}
       TARGET_DB: ${{ matrix.database }}
     steps:
       - name: Install packages
