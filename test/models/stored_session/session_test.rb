@@ -68,4 +68,14 @@ class StoredSession::SessionTest < ActiveSupport::TestCase
       StoredSession::Session.expire_later
     end
   end
+
+  test "uncached_count" do
+    3.times do
+      StoredSession::Session.create!(
+        sid: Rack::Session::SessionId.new(SecureRandom.hex(16)).private_id,
+        data: { "foo" => "bar" })
+    end
+
+    assert_equal 3, StoredSession::Session.uncached_count
+  end
 end

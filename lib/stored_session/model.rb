@@ -34,6 +34,10 @@ module StoredSession::Model
       StoredSession::ExpireSessionsJob.perform_later(max_created_age: max_created_age, max_updated_age: max_updated_age)
     end
 
+    def uncached_count
+      without_query_cache { count }
+    end
+
     private
       def upsert_unique_by
         connection.supports_insert_conflict_target? ? :sid : nil
