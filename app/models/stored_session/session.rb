@@ -1,5 +1,7 @@
 require "active_support/core_ext/integer/time"
 
+require "stored_session/model"
+
 class StoredSession::Session < StoredSession::Record
   include StoredSession::Model
 

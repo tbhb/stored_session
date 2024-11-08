@@ -1,9 +1,6 @@
 require "action_dispatch/session/stored_session_store"
 
-require "active_support"
-require "action_dispatch"
-require "action_controller"
-require "active_record"
+require "stored_session/log_subscriber"
 
 module StoredSession
   class Engine < ::Rails::Engine

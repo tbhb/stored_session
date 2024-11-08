@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 2cc0a796f581d4d2d5f2bd9f93569f744a0d2785
+  revision: 85acb96733617b0d07b434393cb38b4506f454fc
   branch: main
   specs:
     actioncable (8.1.0.alpha)
@@ -106,7 +106,6 @@ PATH
       activerecord (>= 8.0.0)
       bundler (>= 1.15.0)
       railties (>= 8.0.0)
-      zeitwerk (~> 2.6)
 
 GEM
   remote: https://rubygems.org/

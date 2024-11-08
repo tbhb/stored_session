@@ -106,7 +106,6 @@ PATH
       activerecord (>= 8.0.0)
       bundler (>= 1.15.0)
       railties (>= 8.0.0)
-      zeitwerk (~> 2.6)
 
 GEM
   remote: https://rubygems.org/
