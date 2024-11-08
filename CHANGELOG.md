@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Remove zeitwerk dependency (<https://github.com/tbhb/stored_session/pull/50>)
+- Add output to Rake tasks (<https://github.com/tbhb/stored_session/pull/51>)
+
 ## [0.4.0](https://github.com/tbhb/stored_session/releases/tag/v0.4.0)
 
 - Update minimum Rails version to 8.0.0 (<https://github.com/tbhb/stored_session/pull/47>)
