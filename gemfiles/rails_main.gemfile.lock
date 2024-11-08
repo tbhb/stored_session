@@ -100,7 +100,7 @@ GIT
 PATH
   remote: ..
   specs:
-    stored_session (0.3.0)
+    stored_session (0.4.0)
       actionpack (>= 8.0.0)
       activejob (>= 8.0.0)
       activerecord (>= 8.0.0)

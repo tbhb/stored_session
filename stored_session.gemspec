@@ -1,6 +1,6 @@
 require_relative "lib/stored_session/version"
 
-version = StoredSession::VERSION
+version = StoredSession.version
 
 Gem::Specification.new do |spec|
   spec.name        = "stored_session"

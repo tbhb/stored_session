@@ -1,3 +1,22 @@
+# :markup: markdown
+
 module StoredSession
-  VERSION = "0.3.0".freeze
+  module VERSION
+    MAJOR = 0
+    MINOR = 4
+    TINY  = 0
+    PRE   = nil
+
+    STRING = [ MAJOR, MINOR, TINY, PRE ].compact.join(".")
+  end
+
+  # Returns the currently loaded version of Stored Session as a `Gem::Version`.
+  def self.gem_version
+    Gem::Version.new VERSION::STRING
+  end
+
+  # Returns the currently loaded version of Stored Session as a `String`.
+  def self.version
+    VERSION::STRING
+  end
 end

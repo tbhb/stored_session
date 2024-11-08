@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- Update minimum Rails version to 8.0.0
+## [0.4.0](https://github.com/tbhb/stored_session/releases/tag/v0.4.0)
+
+- Update minimum Rails version to 8.0.0 (<https://github.com/tbhb/stored_session/pull/47>)
 
 ## [0.3.0](https://github.com/tbhb/stored_session/releases/tag/v0.3.0)
 
