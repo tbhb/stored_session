@@ -16,6 +16,10 @@ end
 
 SharedTestRoutes = ActionDispatch::Routing::RouteSet.new
 
+class ActiveSupport::TestCase
+  include ActiveJob::TestHelper
+end
+
 module ActionDispatch
   module SharedRoutes
     def before_setup
