@@ -32,7 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activerecord', rails_version
   spec.add_dependency 'railties', rails_version
 
-  spec.add_dependency 'zeitwerk', '~> 2.6'
-
   spec.add_dependency 'bundler', '>= 1.15.0'
 end
