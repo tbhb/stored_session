@@ -13,6 +13,9 @@ gem "sqlite3"
 
 gem "bootsnap", require: false
 
+# For performance benchmarking
+gem "activerecord-session_store"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
@@ -28,7 +31,10 @@ group :development do
 end
 
 group :test do
+  gem "benchmark-ips", require: false
+  gem "memory_profiler", require: false
   gem "simplecov", require: false
   gem "simplecov-cobertura", require: false
   gem "simplecov-console", require: false
+  gem "stackprof", require: false
 end
