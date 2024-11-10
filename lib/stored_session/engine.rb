@@ -22,11 +22,13 @@ module StoredSession
     end
 
     config.after_initialize do |app|
+      # :nocov:
       unless app.config.eager_load
         StoredSession.config.base_controller_class
         StoredSession.config.base_job_class
         StoredSession.config.base_record_class
       end
+      # :nocov:
 
       StoredSession.config.validate!
     end
