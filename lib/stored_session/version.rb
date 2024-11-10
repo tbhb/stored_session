@@ -1,5 +1,6 @@
 # :markup: markdown
 
+# :nocov:
 module StoredSession
   module VERSION
     MAJOR = 0
@@ -20,3 +21,4 @@ module StoredSession
     VERSION::STRING
   end
 end
+# :nocov:

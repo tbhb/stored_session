@@ -1,5 +1,19 @@
 require_relative "boot"
 
+if ENV["RAILS_ENV"] == "test"
+  require "simplecov"
+  require "simplecov-cobertura"
+  require "simplecov-console"
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::CoberturaFormatter,
+    SimpleCov::Formatter::Console,
+    SimpleCov::Formatter::HTMLFormatter
+  ])
+  SimpleCov.start 'rails' do
+    enable_coverage :branch
+  end
+end
+
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
