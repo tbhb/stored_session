@@ -1,0 +1,11 @@
+development:
+  # database: session
+  # encrypt: true
+
+test:
+  # database: session
+  # encrypt: true
+
+production:
+  # database: session
+  # encrypt: true

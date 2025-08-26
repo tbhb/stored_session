@@ -7,6 +7,7 @@ class StoredSession::Configuration
   attribute :base_record_class_name, :string, default: "::ApplicationRecord"
 
   attribute :connects_to
+  attribute :encrypt, default: true
 
   attribute :sessions_table_name, :string, default: "stored_sessions"
   attribute :session_class_name, :string, default: "::StoredSession::Session"
@@ -30,4 +31,6 @@ class StoredSession::Configuration
   def base_job_class = base_job_class_name.constantize
   def base_record_class = base_record_class_name.constantize
   def session_class = session_class_name.constantize
+
+  def encrypt? = encrypt
 end

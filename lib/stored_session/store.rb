@@ -8,7 +8,7 @@ class StoredSession::Store < ActionDispatch::Session::AbstractSecureStore
   attr_reader :session_class
 
   def initialize(app, options = {})
-    super
+    super(app, options)
     @session_class = options.fetch(:session_class) { StoredSession.config.session_class }
   end
 

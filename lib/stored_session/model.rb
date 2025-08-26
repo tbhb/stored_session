@@ -3,7 +3,7 @@ module StoredSession::Model
 
   included do
     serialize :data, coder: ActiveSupport::MessagePack, type: Hash
-    encrypts :data, message_serializer: ActiveRecord::Encryption::MessagePackMessageSerializer.new
+    encrypts :data, message_serializer: ActiveRecord::Encryption::MessagePackMessageSerializer.new if StoredSession.config.encrypt?
 
     scope :by_sid, ->(sid) { where(sid: sid) }
   end
@@ -17,7 +17,9 @@ module StoredSession::Model
 
     def write(sid, data)
       without_query_cache do
-        upsert({ sid:, data: }, unique_by: upsert_unique_by, on_duplicate: :update, update_only: %i[sid data])
+        ActiveRecord::Base.connected_to(role: :writing, prevent_writes: false) do
+          upsert({ sid:, data: }, unique_by: upsert_unique_by, on_duplicate: :update, update_only: %i[sid data])
+        end
       end
       true
     rescue ActiveRecord::SerializationTypeMismatch

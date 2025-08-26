@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.5.0]
+
+- Made encryption configurable
 - Remove zeitwerk dependency (<https://github.com/tbhb/stored_session/pull/50>)
 - Add output to Rake tasks (<https://github.com/tbhb/stored_session/pull/51>)
 - Add `SECURITY.md` (<https://github.com/tbhb/stored_session/pull/53>)

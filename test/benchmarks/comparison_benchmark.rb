@@ -9,29 +9,37 @@ class SessionStoreComparisonBenchmark < Minitest::Benchmark
     bench_exp 1, 1000
   end
 
-  def bench_compare_write_session_active_record_session_store
-    5.times { StoredSession::Store.new(nil).find_session(nil, generate_sid) }
+  def setup
+    # StoredSession.config.encrypt = false
 
-    assert_performance_linear do |n|
-      n.times do
-        request = ActionDispatch::Request.new({ "rack.session.options" => {} })
-        store = ActionDispatch::Session::ActiveRecordStore.new(nil)
-        sid = generate_sid
-        store.send(:write_session, request, sid, { test: "data" * 1000 }, {})
-        store.send(:find_session, request, sid)
-      end
-    end
+    @ar_store = ActionDispatch::Session::ActiveRecordStore.new(nil)
+    @ss_store = ActionDispatch::Session::StoredSessionStore.new(nil)
   end
 
-  def bench_compare_write_session_stored_session_store
-    5.times { StoredSession::Store.new(nil).find_session(nil, generate_sid) }
+  def bench_active_record_store_write_and_read
+    run_write_read_benchmark(@ar_store)
+  end
+
+  def bench_stored_session_store_write_and_read
+    run_write_read_benchmark(@ss_store)
+  end
+
+  private
+
+  def run_write_read_benchmark(store)
+    # Warm up database connections and other components before running benchmarks.
+    request = ActionDispatch::Request.new({ "rack.session.options" => {} })
+    data = { test: "data" * 1000 }
+    sid = generate_sid
+
+    5.times do
+      store.send(:write_session, request, sid, data, {})
+      store.send(:find_session, request, generate_sid)
+    end
 
     assert_performance_linear do |n|
       n.times do
-        request = ActionDispatch::Request.new({ "rack.session.options" => {} })
-        store = ActionDispatch::Session::StoredSessionStore.new(nil)
-        sid = generate_sid
-        store.send(:write_session, request, sid, { test: "data" * 1000 }, {})
+        store.send(:write_session, request, sid, data, {})
         store.send(:find_session, request, sid)
       end
     end
